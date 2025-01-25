@@ -6,11 +6,6 @@ import MosqueDetail from './components/MosqueDetail';
 import AddMosque from './components/AddMosque';
 
 const App = () => {
-  const ff = async () => {
-    console.log('Adding initial mosques');
-    // await addInitialMosques();
-    console.log('Done');
-  }
   return (
     <Router>
       <div className="app">

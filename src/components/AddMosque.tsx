@@ -5,14 +5,6 @@ import { collection, addDoc } from 'firebase/firestore';
 import toast from 'react-hot-toast';
 import '../styles/AddMosque.css';
 
-interface MosqueTimings {
-  fajar: string;
-  zohr: string;
-  asar: string;
-  magrib: string;
-  isha: string;
-}
-
 const AddMosque = () => {
   const navigate = useNavigate();
   const [mosque, setMosque] = useState({
