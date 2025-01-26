@@ -87,6 +87,15 @@
   outline: none;
   border-color: var(--primary-color);
 }
+.last-updated-tag {
+  display: inline-block;
+  background-color: #898989;
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 16px;
+  margin-left: 0.5rem;
+  font-size: smaller;
+}
 
 .filter-tag {
   display: inline-block;
@@ -174,6 +183,15 @@
   padding: 0.5rem;
   background-color: var(--bg-secondary);
   border-radius: 6px;
+}
+.prayer-time2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  background-color: #676a22;
+  border-radius: 10px;
+  font-size: smaller;
 }
 
 .prayer-label {

@@ -40,6 +40,9 @@ const MosqueDetail = () => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
   useEffect(() => {
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     const fetchMosque = async () => {
       try {
         if (!id) return;
@@ -81,7 +84,7 @@ const MosqueDetail = () => {
       if (!id || !editedTimings) return;
 
       await updateDoc(doc(db, 'mosques', id), {
-        timings: editedTimings
+        timings: editedTimings, lastUpdated: new Date().toDateString()
       });
 
       setMosque(prev => prev ? { ...prev, timings: editedTimings } : null);
@@ -143,12 +146,14 @@ const MosqueDetail = () => {
           <button className="back-button" onClick={() => navigate('/')}>
             ← Back to Home
           </button>
-          <h2>{mosque.name}</h2>
-          <p className="mosque-address">{mosque.location}, {mosque.city}</p>
-          <div className="header-buttons">
+          <div className="mosque-name-section">
+            <h2>{mosque.name}</h2>
+            <p className="mosque-address">{mosque.location}, {mosque.city}</p>
+          </div>
+          <div className="button-group">
             {!isEditing && (
               <>
-                <button className="edit-button" onClick={handleEditClick}>
+                <button className="edit-button" onClick={() => setIsEditing(true)}>
                   Edit Prayer Times
                 </button>
                 <button className="delete-button" onClick={() => setShowDeleteConfirm(true)}>

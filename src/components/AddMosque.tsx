@@ -17,7 +17,8 @@ const AddMosque = () => {
       asar: '16:00',
       magrib: '18:00',
       isha: '20:00'
-    }
+    },
+    lastUpdated: new Date().toDateString()
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
