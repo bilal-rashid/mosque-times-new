@@ -42,6 +42,7 @@ const AddMosque = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    mosque.name = mosque.name.replace(/\s/g, '');
     try {
       await addDoc(collection(db, 'mosques'), mosque);
       toast.success('Mosque added successfully!');
