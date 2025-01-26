@@ -65,10 +65,10 @@ const MosqueDetail = () => {
     fetchMosque();
   }, [id]);
 
-  const handleEditClick = () => {
-    setIsEditing(true);
-    setEditedTimings(mosque?.timings || null);
-  };
+  // const handleEditClick = () => {
+  //   setIsEditing(true);
+  //   setEditedTimings(mosque?.timings || null);
+  // };
 
   const handleTimingChange = (prayer: keyof MosqueTimings, value: string) => {
     if (editedTimings) {

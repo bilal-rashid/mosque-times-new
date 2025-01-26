@@ -153,7 +153,7 @@ const MosqueList = () => {
                   <span className="prayer-label">Isha</span>
                   <span className="prayer-value">{convertTo12Hour(mosque.timings.isha)}</span>
                 </div>
-                <div style={{ marginTop: '1rem' }}>
+                <div style={{ marginTop: '0.5rem' }}>
                   <span className="last-updated-tag"> Last Updated : {mosque.lastUpdated}</span>
                 </div>
               </div>

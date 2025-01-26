@@ -89,7 +89,7 @@
 }
 .last-updated-tag {
   display: inline-block;
-  background-color: #898989;
+  background-color: var(--primary-color);
   color: white;
   padding: 0.3rem 0.8rem;
   border-radius: 16px;

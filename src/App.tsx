@@ -36,8 +36,8 @@ const App = () => {
         {/* Hero Section */}
         <section className="hero">
           <div className="hero-content">
-            <h1>Mosque Timetable Platform</h1>
-            <p>Find the perfect mosque and prayer schedule for your spiritual journey</p>
+            <h1>Never Miss a Prayer</h1>
+            <p>Stay aligned with the prayer schedules of mosques near you.</p>
           </div>
         </section>
 
@@ -51,9 +51,8 @@ const App = () => {
         {/* CTA Section */}
         <section className="cta-section">
           <div className="cta-content">
-            <h2>Ready to Get Started?</h2>
-            <p>Join our spiritual community today</p>
-            <button className="cta-button">Register Now</button>
+            <h2>"The first deed for which a person will be called to account on the Day of Judgment will be his prayer."</h2>
+            <p>(Sunan Abu Dawood)</p>
           </div>
         </section>
 
@@ -76,8 +75,8 @@ const App = () => {
             <div className="footer-section">
               <h3>Contact</h3>
               <ul>
-                <li>Email: info@mosquetimetable.com</li>
-                <li>Phone: +1 (123) 456-7890</li>
+                <li>Email: bilalrashid1992@gmail.com</li>
+                <li>Phone: +92 (334) 5505421</li>
               </ul>
             </div>
           </div>
