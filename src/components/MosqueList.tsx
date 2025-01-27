@@ -76,9 +76,9 @@ const MosqueList = () => {
   return (
     <div className="mosque-list-container">
       <div className="mosque-list-header">
-        <h1>Mosques</h1>
+        <h2>Mosques</h2>
         <button className="add-mosque-button" onClick={() => navigate('/add-mosque')}>
-          Add New Mosque
+          Add Mosque
         </button>
       </div>
 

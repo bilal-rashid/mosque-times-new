@@ -77,7 +77,7 @@ const AddMosque = () => {
           </div>
 
           <div className="form-group">
-            <label>Location</label>
+            <label>Address</label>
             <input
               type="text"
               name="location"
