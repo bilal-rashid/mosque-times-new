@@ -10,6 +10,7 @@ interface MosqueTimings {
   asar: string;
   magrib: string;
   isha: string;
+  juma: string;
 }
 
 interface Mosque {
@@ -152,6 +153,10 @@ const MosqueList = () => {
                 <div className="prayer-time">
                   <span className="prayer-label">Isha</span>
                   <span className="prayer-value">{convertTo12Hour(mosque.timings.isha)}</span>
+                </div>
+                <div className="prayer-time">
+                  <span className="prayer-label">Juma</span>
+                  <span className="prayer-value">{convertTo12Hour(mosque.timings.juma)}</span>
                 </div>
                 <div style={{ marginTop: '0.5rem' }}>
                   <span className="last-updated-tag"> Last Updated : {mosque.lastUpdated}</span>

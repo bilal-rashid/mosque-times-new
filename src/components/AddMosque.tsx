@@ -16,7 +16,8 @@ const AddMosque = () => {
       zohr: '13:00',
       asar: '16:00',
       magrib: '18:00',
-      isha: '20:00'
+      isha: '20:00',
+      juma: '13:30'
     },
     lastUpdated: new Date().toDateString()
   });
@@ -153,6 +154,17 @@ const AddMosque = () => {
                   type="time"
                   name="timings.isha"
                   value={mosque.timings.isha}
+                  onChange={handleInputChange}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label>Juma</label>
+                <input
+                  type="time"
+                  name="timings.juma"
+                  value={mosque.timings.juma}
                   onChange={handleInputChange}
                   required
                 />

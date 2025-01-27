@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { db } from '../firebase';
 import { doc, getDoc, updateDoc, deleteDoc } from 'firebase/firestore';
-import toast from 'react-hot-toast';
+// import toast from 'react-hot-toast';
 import '../styles/MosqueDetail.css';
 
 interface MosqueTimings {
@@ -11,6 +11,7 @@ interface MosqueTimings {
   asar: string;
   magrib: string;
   isha: string;
+  juma: string;
 }
 
 interface Mosque {
@@ -84,7 +85,7 @@ const MosqueDetail = () => {
       if (!id || !editedTimings) return;
 
       await updateDoc(doc(db, 'mosques', id), {
-        timings: editedTimings, lastUpdated: new Date().toDateString()
+        ...mosque,timings: editedTimings, lastUpdated: new Date().toDateString()
       });
 
       setMosque(prev => prev ? { ...prev, timings: editedTimings } : null);
@@ -101,17 +102,17 @@ const MosqueDetail = () => {
     setEditedTimings(mosque?.timings || null);
   };
 
-  const handleDelete = async () => {
-    try {
-      if (!id) return;
-      await deleteDoc(doc(db, 'mosques', id));
-      toast.success('Mosque deleted successfully');
-      navigate('/');
-    } catch (err) {
-      console.error('Error deleting mosque:', err);
-      toast.error('Failed to delete mosque');
-    }
-  };
+  // const handleDelete = async () => {
+  //   try {
+  //     if (!id) return;
+  //     await deleteDoc(doc(db, 'mosques', id));
+  //     toast.success('Mosque deleted successfully');
+  //     navigate('/');
+  //   } catch (err) {
+  //     console.error('Error deleting mosque:', err);
+  //     toast.error('Failed to delete mosque');
+  //   }
+  // };
 
   if (isLoading) {
     return (
@@ -136,7 +137,22 @@ const MosqueDetail = () => {
     zohr: 'Zuhr',
     asar: 'Asr',
     magrib: 'Maghrib',
-    isha: 'Isha'
+    isha: 'Isha',
+    juma: 'Juma'
+  };
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    const tempMosque = { ...mosque };
+    if (name === 'name') {
+      tempMosque.name = value;
+      setMosque(tempMosque);
+    } else if (name === 'location') {
+      tempMosque.location = value;
+      setMosque(tempMosque);
+    } else if (name === 'city') {
+      tempMosque.city = value;
+      setMosque(tempMosque);
+    }
   };
 
   return (
@@ -156,13 +172,54 @@ const MosqueDetail = () => {
                 <button className="edit-button" onClick={() => setIsEditing(true)}>
                   Edit Prayer Times
                 </button>
-                <button className="delete-button" onClick={() => setShowDeleteConfirm(true)}>
+                {/* <button className="delete-button" onClick={() => setShowDeleteConfirm(true)}>
                   Delete Mosque
-                </button>
+                </button> */}
               </>
             )}
           </div>
         </div>
+        {isEditing &&
+          <div className="form-group">
+            <label>Mosque Name</label>
+            <input
+              type="text"
+              name="name"
+              value={mosque.name}
+              onChange={handleInputChange}
+              required
+              placeholder="Enter mosque name"
+            />
+        </div>
+        }
+
+    {isEditing &&
+      <div className="form-group">
+                <label>Address</label>
+                <input
+                  type="text"
+                  name="location"
+                  value={mosque.location}
+                  onChange={handleInputChange}
+                  required
+                  placeholder="Enter address"
+                />
+              </div>
+    }
+
+{isEditing &&
+  <div className="form-group">
+            <label>City</label>
+            <input
+              type="text"
+              name="city"
+              value={mosque.city}
+              onChange={handleInputChange}
+              required
+              placeholder="Enter city"
+            />
+          </div>
+}
 
         <div className="prayer-times-container">
           {Object.entries(prayerNames).map(([key, label]) => (
@@ -201,9 +258,9 @@ const MosqueDetail = () => {
               <h3>Confirm Delete</h3>
               <p>Are you sure you want to delete this mosque? This action cannot be undone.</p>
               <div className="delete-confirm-buttons">
-                <button className="confirm-delete-button" onClick={handleDelete}>
+                {/* <button className="confirm-delete-button" onClick={handleDelete}>
                   Yes, Delete
-                </button>
+                </button> */}
                 <button className="cancel-delete-button" onClick={() => setShowDeleteConfirm(false)}>
                   Cancel
                 </button>
