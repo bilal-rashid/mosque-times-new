@@ -84,7 +84,7 @@ const AddMosque = () => {
               value={mosque.location}
               onChange={handleInputChange}
               required
-              placeholder="Enter location"
+              placeholder="Enter address"
             />
           </div>
 
